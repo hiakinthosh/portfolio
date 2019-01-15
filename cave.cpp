@@ -13,7 +13,7 @@ Possible moves are
     (costs 15 pts energy)
 : T - teleports player in one of the undiscovered fields
     but you lose your orientation
-
+    (costs 30 pts energy)
 
 :: Directions
 
