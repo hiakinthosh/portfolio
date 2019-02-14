@@ -1,6 +1,6 @@
 /*
 Program parses a file with .tex extension and
-chooses title of the article contained in file,
+collects title of the article contained in file,
 its author,
 moreover counts images which occurred
 and list its bibliography
