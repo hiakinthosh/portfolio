@@ -81,7 +81,7 @@ int makeMove(int Board[height][width], char command, int &direction, int &gx, in
        else direction++;
        energy -= 10;
     }
-    else if (command == 'P' || command == 'p') { // obrot w prawo
+    else if (command == 'P' || command == 'p') { // turn right
         if (direction == 1) direction = 4;
         else direction--;
         energy -= 10;
@@ -131,19 +131,19 @@ int makeMove(int Board[height][width], char command, int &direction, int &gx, in
 
 void informator(int Board[height][width], int gx, int gy, int direction, int energy, int points) {
     cout << "In front of you there is a  ";
-    if (direction == 1) { // dla spaceru na polnoc
+    if (direction == 1) { // walkin' north
         if (Board[gx-1][gy] == 7 || Board[gx-1][gy] == 8)       cout << "wall";
         else if (Board[gx-1][gy] == 9 || Board[gx-1][gy] == 0)  cout << "tunnel";
     }
-    else if (direction == 2) { // dla spaceru na zachod
+    else if (direction == 2) { // walkin west
         if (Board[gx][gy-1] == 7 || Board[gx][gy-1] == 8)       cout << "wall";
         else if (Board[gx][gy-1] == 9 || Board[gx][gy-1] == 0)  cout << "tunnel";
     }
-    else if (direction == 3) { // dla spaceru na poludnie
+    else if (direction == 3) { // walkin' south
         if (Board[gx+1][gy] == 7 || Board[gx+1][gy] == 8)       cout << "wall";
         else if (Board[gx+1][gy] == 9 || Board[gx+1][gy] == 0)  cout << "tunnel";
     }
-    else if (direction == 4) { // dla spaceru na wschod
+    else if (direction == 4) { // walkin' east
         if (Board[gx][gy+1] == 7 || Board[gx][gy+1] == 8)       cout << "wall";
         else if (Board[gx][gy+1] == 9 || Board[gx][gy+1] == 0)  cout << "tunnel";
     }
@@ -191,11 +191,11 @@ int main() {
          << "What you want to do? (L/P/N/T): ";
 
     while(true) {
-        if ((Player.x == Exit.x) && (Player.y == Exit.y) && points > 0) { // warunek wygranej
+        if ((Player.x == Exit.x) && (Player.y == Exit.y) && points > 0) { // win condition
             cout << endl << "YOU WON!" << endl << "Your points: " << points << endl;
             return false;
         }
-        if (energy <= 0) { // warunek przegranej
+        if (energy <= 0) { // loose condition
             cout << "You lose!" << endl << "Your points: " << points << endl;
             return false;
         }
